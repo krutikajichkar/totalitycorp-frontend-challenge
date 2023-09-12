@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { SHOPPING_LOGO, USER_AVATAR } from "../utils/constants";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(true);
@@ -18,7 +19,7 @@ const Header = () => {
 
        <div className="fixed top-36 sm:top-0 sm:static"  >
         <ul className="flex text-left flex-col  gap-6 text-xl cursor-pointer sm:flex-row ">
-          <li>Home</li>
+         <Link to='/'> <li>Home</li></Link>
           <li>Cart</li>
           <li>About</li>
         </ul>

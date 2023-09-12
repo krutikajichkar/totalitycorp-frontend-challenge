@@ -28,6 +28,7 @@ const Categories = () => {
           <div
             className="bg-gray-100 px-4 py-2 rounded-lg cursor-pointer"
             onClick={() => categoryHandler(cat)}
+            key={index}
           >
             {cat}
           </div>
