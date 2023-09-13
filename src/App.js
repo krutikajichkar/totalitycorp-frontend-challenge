@@ -4,6 +4,7 @@ import './App.css';
 import Header from './Components/Header';
 import MainContainer from './Components/MainContainer';
 import ProductDetails from './Components/ProductDetails';
+import Cart from './Components/Cart';
 
 function App() {
   return (
@@ -26,6 +27,10 @@ export const appRoute = createBrowserRouter([
       {
         path:'/product/:id',
         element:<ProductDetails/>
+      },
+      {
+        path:'/cart',
+        element:<Cart/>
       }
     ]
   }

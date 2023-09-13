@@ -2,17 +2,23 @@ import React from "react";
 import useProductDetails from "../utils/useProductDetails";
 import StarIcon from "@mui/icons-material/Star";
 import { useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { addItemsToCart } from "../redux/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addItemsToCart, removeFromCart } from "../redux/cartSlice";
 
 const ProductDetails = () => {
-    const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const cart = useSelector((store) => store.Cart.cartItems);
   const { id } = useParams();
   const receivedProductDetails = useProductDetails(id);
+
   const cartHandler = () => {
-    dispatch(addItemsToCart(receivedProductDetails))
-  }
-  return ( 
+    dispatch(addItemsToCart(receivedProductDetails));
+  };
+
+  const removeItemFromCartHandler = (prod) => {
+    dispatch(removeFromCart(prod));
+  };
+  return (
     <div className=" sm:mt-[150px] mt-[100px] max-w-[1200px] mx-auto px-2 ">
       <div className=" w-full bg-gray-100 flex flex-col sm:flex-row gap-4 p-4 h-auto mb-5 sm:mb-0 sm:h-[600px]  rounded-lg">
         <div>
@@ -56,9 +62,21 @@ const ProductDetails = () => {
               {receivedProductDetails?.discountPercentage}% off
             </span>
           </div>
-          <button onClick={cartHandler} className="w-full mt-12 text-xl font-semibold bg-orange-400 text-white py-2 rounded-md">
-            Add To Cart
-          </button>
+          {cart?.some((p) => p?.id === receivedProductDetails?.id) ? (
+            <button
+              onClick={() => removeItemFromCartHandler(receivedProductDetails)}
+              className="w-full mt-12 text-xl font-semibold bg-red-400 text-white py-2 rounded-md"
+            >
+              Remove From Cart
+            </button>
+          ) : (
+            <button
+              onClick={cartHandler}
+              className="w-full mt-12 text-xl font-semibold bg-orange-400 text-white py-2 rounded-md"
+            >
+              Add To cart
+            </button>
+          )}
           <button className="w-full mt-3 text-xl font-semibold bg-yellow-400 text-white py-2 rounded-md">
             Buy Now
           </button>
