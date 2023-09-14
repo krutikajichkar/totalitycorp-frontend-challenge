@@ -1,5 +1,5 @@
 import React from "react";
-import useProducts from "../utils/useProducts";
+import useProducts from "../../utils/useProducts";
 import ProductCard from "./ProductCard";
 import { Link } from "react-router-dom";
 
@@ -17,6 +17,7 @@ const ProductList = () => {
               ratings={prod.rating}
               price={prod.price}
               description={prod.description}
+              discountPercentage = {prod.discountPercentage}
             />
           </Link>
         );

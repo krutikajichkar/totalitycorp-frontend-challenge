@@ -1,60 +1,44 @@
 import React, { useState } from "react";
-import { SHOPPING_LOGO, USER_AVATAR } from "../utils/constants";
-import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from "@mui/icons-material/Close";
+import { SHOPPING_LOGO } from "../utils/constants";
+
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { AiOutlineSearch } from "react-icons/ai";
+import { BsCartFill } from "react-icons/bs";
 
 const Header = () => {
-  const cart = useSelector(store => store.Cart?.cartItems)
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const cart = useSelector((store) => store.Cart?.cartItems);
+ 
   return (
-    <div className="flex justify-between items-center fixed top-0 bg-blue-50 p-8 h-20 w-full">
-      <div className="flex items-center">
-        <img
-          className="rounded-full w-12 h-10 sm:w-16 sm:h-14 "
-          src={SHOPPING_LOGO}
-          alt="shopping_logo"
-        />
-        <span className=" text-2xl sm:text-3xl italic font-bold">Shopsy</span>
-      </div>
-
-      <div className="fixed top-36 sm:top-0 sm:static">
-        <ul className="flex text-left flex-col  gap-6 text-xl cursor-pointer sm:flex-row ">
-          <Link to="/">
-            {" "}
-            <li>Home</li>
-          </Link>
-          <Link to="/cart">
-            {" "}
-            <li>Cart({cart?.length})</li>
-          </Link>
-          <li>About</li>
-        </ul>
-      </div>
-
-      <div className="fixed top-24 sm:top-0 sm:static ">
-        <div className="inline-flex  gap-8 items-center">
-          <span className="text-xl">Hello, XYZ</span>
+    <div className="flex justify-around items-center fixed top-0 bg-blue-500 p-8 h-14 w-full">
+      <Link to="/">
+        <div className="flex items-center cursor-pointer">
           <img
-            className="w-16 rounded-full hidden sm:block"
-            src={USER_AVATAR}
-            alt="user_avatar"
+            className="rounded-full w-20    "
+            src={SHOPPING_LOGO}
+            alt="shopping_logo"
           />
         </div>
+      </Link>
+
+      <div className="relative w-3/12">
+        <input type="text" placeholder="Search for products " className="px-4 py-2 w-full text-xl"/>
+        <div ><AiOutlineSearch className="text-xl absolute right-2 top-3 text-blue-500" /></div>
       </div>
-      <div className=" cursor-pointer sm:hidden flex items-center">
-        {isMenuOpen && (
-          <div onClick={() => setIsMenuOpen(false)}>
-            <MenuIcon sx={{ fontSize: "35px" }} />
+
+      <div className="inline-flex  gap-8 items-center text-white">
+        <Link to="/cart">
+          {" "}
+          <div className="flex items-center gap-1 relative text-2xl">
+            <BsCartFill className="text-3xl"/>
+            <p className="absolute -top-3 bg-red-500  rounded-xl px-2 text-lg">{cart.length}</p>
+            <span>Cart</span>
           </div>
-        )}
-        {!isMenuOpen && (
-          <div onClick={() => setIsMenuOpen(true)}>
-            <CloseIcon sx={{ fontSize: "35px" }} />
-          </div>
-        )}
+        </Link>
+        <span className="text-xl">Hello, XYZ</span>
+        
       </div>
+      
     </div>
   );
 };

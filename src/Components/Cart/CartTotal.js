@@ -8,7 +8,7 @@ const CartTotal = () => {
     setTotal(cart.reduce((acc, curr) => acc + Number(curr.price)*curr.qty,0));
   }, [cart]);
   return (
-    <div className="bg-gray-600 text-white h-96 p-8 rounded-lg w-[25%] ">
+    <div className="bg-white h-96 p-8  w-[30%] sticky top-60 z-2 ">
       <h1 className="text-3xl font-bold">Total Items ({cart?.length})</h1>
       <h2 className="mt-3 text-xl font-semibold">Subtotal : ${total}</h2>
       <button className="mt-5 w-full bg-gray-200 text-black text-lg p-1 rounded-lg ">Proceed to checkout</button>

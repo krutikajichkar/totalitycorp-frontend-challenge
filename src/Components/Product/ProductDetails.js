@@ -1,9 +1,9 @@
 import React from "react";
-import useProductDetails from "../utils/useProductDetails";
+import useProductDetails from "../../utils/useProductDetails";
 import StarIcon from "@mui/icons-material/Star";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addItemsToCart, removeFromCart } from "../redux/cartSlice";
+import { addItemsToCart, removeFromCart } from "../../redux/cartSlice";
 
 const ProductDetails = () => {
   const dispatch = useDispatch();

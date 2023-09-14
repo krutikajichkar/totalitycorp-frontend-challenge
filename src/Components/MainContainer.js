@@ -1,6 +1,6 @@
 import React from 'react'
 import Categories from './Categories'
-import ProductList from './ProductList'
+import ProductList from './Product/ProductList'
 
 const MainContainer = () => {
   return (

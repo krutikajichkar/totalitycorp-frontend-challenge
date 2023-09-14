@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { changeCartQuantity } from "../redux/cartSlice";
-import { removeFromCart } from "../redux/cartSlice";
+import { changeCartQuantity } from "../../redux/cartSlice";
+import { removeFromCart } from "../../redux/cartSlice";
 
 const CartItems = () => {
   const dispatch = useDispatch();
@@ -20,11 +20,11 @@ const CartItems = () => {
     return <h1>Your Cart is Empty</h1>;
   }
   return (
-    <div>
+    <div className="overflow-y-scroll max-h-[800px] w-[50%] bg-white scrollbar-hide">
       {cart.map((item) => {
         return (
           <div
-            className="flex gap-5 bg-gray-100 p-6 border-1 border-black rounded-md items-center mb-4 "
+            className="flex  bg-white p-6 gap-5  items-center border-b-2 border-gray-300  "
             key={item.id}
           >
             <div>
@@ -33,7 +33,12 @@ const CartItems = () => {
                 src={item.thumbnail}
                 alt="Product_img"
               />
-              <button className="mt-3 p-2 w-full text-xl bg-red-600 rounded-lg text-white"  onClick={() => removeItemFromCartHandler(item)}>Remove From Cart</button>
+              <button
+                className="mt-3 p-2 w-full text-xl bg-red-600 rounded-lg text-white"
+                onClick={() => removeItemFromCartHandler(item)}
+              >
+                Remove From Cart
+              </button>
             </div>
             <div className="">
               <h1 className="text-3xl font-bold">{item.title}</h1>
@@ -60,6 +65,10 @@ const CartItems = () => {
           </div>
         );
       })}
+      <div className="  bg-white p-4 sticky top-64 z-2 bottom-0 right-0 left-0  shadow-stone-800 shadow-lg text-right">
+        <button className="px-4 py-2 text-xl bg-orange-500 text-white">Place Order</button>
+      </div>
+      
     </div>
   );
 };
