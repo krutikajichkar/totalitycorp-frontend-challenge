@@ -15,7 +15,7 @@ const Categories = () => {
   return (
     <div>
         <div
-        className=" px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-100"
+        className=" px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-100 text-xl"
         onClick={() => categoryHandler("All")}
       >
         All
@@ -23,7 +23,7 @@ const Categories = () => {
       {recievedCategories.map((cat, index) => {
         return (
           <div
-            className=" px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-100"
+            className=" px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-100 text-xl"
             onClick={() => categoryHandler(cat)}
             key={index}
           >

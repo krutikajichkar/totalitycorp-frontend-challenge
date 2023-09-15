@@ -1,26 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { getFileteredProducts } from '../../redux/productsSlice';
 
 const Ratings = () => {
+    const ratings = [4.5 , 4, 3 , 2]
+    const dispatch = useDispatch();
+   
+  
+    const ratingsHandler = (r) => {
+     
+        dispatch(getFileteredProducts(r));
+      
+    };
+   
   return (
     <div className='px-4 py-2'>
 
         <ul>
-            <li className='flex gap-3 text-xl font-semibold p-2' >
-                <input className='w-5 cursor-pointer' type="checkbox" name="" id="" />
-                <span>4.5 above</span>
+           { ratings.map((r,index) => {
+            return(
+                <li className='flex gap-3 text-xl font-semibold p-2 cursor-pointer' key={index} onClick={() => ratingsHandler(r)} >
+                {r} above
             </li>
-            <li className='flex gap-3 text-xl font-semibold p-2' >
-                <input className='w-5 cursor-pointer' type="checkbox" name="" id="" />
-                <span>4 above</span>
-            </li>
-            <li className='flex gap-3 text-xl font-semibold p-2' >
-                <input className='w-5 cursor-pointer' type="checkbox" name="" id="" />
-                <span>3 above</span>
-            </li>
-            <li className='flex gap-3 text-xl font-semibold p-2' >
-                <input className='w-5 cursor-pointer' type="checkbox" name="" id="" />
-                <span>2 above</span>
-            </li>
+            )
+           }) }
            
         </ul>
 
