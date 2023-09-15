@@ -9,8 +9,8 @@ const useProducts = () => {
   const [products, setProducts] = useState([]);
   const getProducts = async () => {
     await fetch(
-      category === null
-        ? "https://dummyjson.com/products"
+      category === "All"
+        ? "https://dummyjson.com/products?limit=40"
         : `https://dummyjson.com/products/category/${category}`
     )
       .then((response) => response.json())

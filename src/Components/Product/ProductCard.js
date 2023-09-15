@@ -3,8 +3,8 @@ import StarIcon from "@mui/icons-material/Star";
 
 const ProductCard = ({ imgUrl, title, description, ratings, price , discountPercentage }) => {
   return (
-    <div className="py-4 min-h-[600px] bg-white w-[400px] flex flex-col justify-center items-center cursor-pointer">
-      <div className="w-[350px] ">
+    <div className=" p-2 min-h-[600px] m-1 w-[350px] flex flex-col justify-center items-center cursor-pointer hover:shadow-2xl ">
+      <div className="w-[350px] p-2">
         <img
           className="w-full h-[300px] rounded-lg"
           src={imgUrl}

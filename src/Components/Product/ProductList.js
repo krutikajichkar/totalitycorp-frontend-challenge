@@ -7,7 +7,7 @@ const ProductList = () => {
   const receivedProducts = useProducts();
   console.log(receivedProducts);
   return (
-    <div className=" mt-10 flex gap-3 flex-wrap justify-center">
+    <div className=" flex flex-wrap bg-white p-3  justify-center ">
       {receivedProducts.map((prod) => {
         return (
           <Link key={prod.id} to={`/product/${prod.id}`}>

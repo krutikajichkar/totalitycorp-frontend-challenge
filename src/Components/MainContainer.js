@@ -1,11 +1,13 @@
 import React from 'react'
-import Categories from './Categories'
 import ProductList from './Product/ProductList'
+import Filter from './Filters/Filter'
 
 const MainContainer = () => {
   return (
-    <div className='mt-[100px]'>
-        <Categories/>
+    <div className='mt-[60px] flex p-3 gap-3 '>
+        <div>
+        <Filter/>
+        </div>
         <ProductList/>
     </div>
   )
