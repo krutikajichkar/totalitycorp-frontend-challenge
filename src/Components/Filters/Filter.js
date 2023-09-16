@@ -23,8 +23,8 @@ const Filter = () => {
     <div className="bg-white w-[350px]">
       <h1 className="p-3 text-2xl font-semibold border-b-2 "> Filters</h1>
 
-      {filters.map((f) => {
-        return <Accordian title={f.title} component={f.component} />;
+      {filters.map((f,index) => {
+        return <Accordian title={f.title} component={f.component} key={index} />;
       })}
     </div>
   );

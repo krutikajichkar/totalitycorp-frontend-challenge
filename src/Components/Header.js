@@ -8,9 +8,10 @@ import { BsCartFill } from "react-icons/bs";
 
 const Header = () => {
   const cart = useSelector((store) => store.Cart?.cartItems);
+  const wishlist = useSelector((store) => store.wishlist?.products)
  
   return (
-    <div className="flex justify-around items-center fixed top-0 bg-blue-500 p-8 h-14 w-full">
+    <div className="flex justify-around items-center fixed top-0 bg-blue-500 p-8 h-14 w-full z-10">
       <Link to="/">
         <div className="flex items-center cursor-pointer">
           <img
@@ -34,6 +35,9 @@ const Header = () => {
             <p className="absolute -top-3 bg-red-500  rounded-xl px-2 text-lg">{cart.length}</p>
             <span>Cart</span>
           </div>
+        </Link>
+        <Link to='/wishlist'>
+        <span className="text-xl">WishList({wishlist?.length})</span>
         </Link>
         <span className="text-xl">Hello, XYZ</span>
         

@@ -6,6 +6,7 @@ import MainContainer from './Components/MainContainer';
 import ProductDetails from './Components/Product/ProductDetails';
 import Cart from './Components/Cart/Cart';
 import Footer from './Components/Footer';
+import Wishlist from './Components/wishlist/Wishlist';
 
 function App() {
   return (
@@ -33,6 +34,10 @@ export const appRoute = createBrowserRouter([
       {
         path:'/cart',
         element:<Cart/>
+      },
+      {
+        path:'/wishlist',
+        element: <Wishlist/>
       }
     ]
   }
