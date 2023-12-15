@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import WishlistCard from './WishlistCard'
+
 const Wishlist = () => {
     const wishlist = useSelector((store) => store.wishlist?.products);
     if(wishlist.length===0){
@@ -20,6 +21,7 @@ const Wishlist = () => {
               })
             }
         </div>
+        
     </div>
   )
 }
