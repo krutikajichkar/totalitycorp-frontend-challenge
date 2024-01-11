@@ -3,7 +3,7 @@ import { BsChevronDown , BsChevronUp } from "react-icons/bs";
 const Accordian = ({title , component}) => {
     const [show, setShow] = useState(false)
   return (
-    <div>
+    <>
         <div className=" border-b-2">
         <div
           className="w-full p-3 flex items-center justify-between cursor-pointer"
@@ -18,7 +18,7 @@ const Accordian = ({title , component}) => {
         </div>
        {show && component}
       </div>
-    </div>
+    </>
   )
 }
 

@@ -27,7 +27,7 @@ const WishlistIcon = ({prod}) => {
 
   return (
     <div>
-         <div className="absolute top-2 right-2 z-20   text-right">
+         <div className="absolute top-2 right-2    text-right">
        <div className=" relative cursor-pointer text-red-500 text-3xl" onClick={handleClick}>
           
           { show   ? <AiFillHeart />  : <AiOutlineHeart  /> }
